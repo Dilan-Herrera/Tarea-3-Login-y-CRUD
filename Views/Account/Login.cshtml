@@ -1,0 +1,104 @@
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004D40 50%, #FF7043 50%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .login-container img {
+            height: 80px;
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .login-container label {
+            color: #004D40;
+            font-size: 14px;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            background-color: #E0F2F1;
+            border: none;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background-color: #FF7043;
+        }
+
+        .btn-register {
+            background-color: #4CAF50;
+        }
+
+        .error-label {
+            color: #FF7043;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="~/img/user_icon.png" alt="User Icon" />
+        <h3>Login</h3>
+
+        <form method="post" action="/Account/Login">
+            <label for="Username">Username</label>
+            <input type="text" id="Username" name="Username" placeholder="Enter your username" required />
+
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" placeholder="Enter your password" required />
+
+            <button type="submit" class="btn-login">Sign In</button>
+
+            @if (ViewBag.Error != null)
+            {
+                <p class="error-label">@ViewBag.Error</p>
+            }
+
+            <button type="button" class="btn-register" onclick="alert('Registro en construcción');">Register New User</button>
+        </form>
+    </div>
+</body>
+</html>
